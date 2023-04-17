@@ -1,0 +1,73 @@
+{% extends 'main.html' %} {% load static %} {% block content %}
+<main class="edit-profile-container">
+  <div class="edit-profile-sidebar">
+    <h1 class="heading">BitPass</h1>
+    <div class="display-user">
+      <h4>{{request.user.name}}</h4>
+      <p>{{greet}}!</p>
+    </div>
+
+    <ul class="options">
+      <li class="pass-op op-active">
+        <a href="{% url 'dashboard' %}">
+          <img src="{% static 'images/icons/pass-ic.svg' %}" />
+          <span>Passwords</span>
+        </a>
+      </li>
+      <li class="edit-profile-op">
+        <a href="{% url 'edit-profile' %}"
+          ><img src="{% static 'images/icons/edit-ic.svg' %}" />
+          <span>Edit Profile</span></a
+        >
+      </li>
+      <li class="logout-op">
+        <a href="{% url 'logout' %}">
+          <img src="{% static 'images/icons/logout-ic.svg' %}" />
+          <span>Logout</span>
+        </a>
+      </li>
+
+      <li class="delete-op">
+        <a href="{% url 'delete-user' %}">
+          <img src="{% static 'images/icons/delete-user-ic.svg' %}" />
+          <span>Delete Account</span>
+        </a>
+      </li>
+    </ul>
+  </div>
+
+  <form action="" method="POST" class="edit-profile-form">
+    {% csrf_token %}
+    <h1 class="edit-profile__heading">Edit Your Profile</h1>
+    <div class="form-control">
+      <label for="">Name</label>
+      <input
+        type="text"
+        name="name"
+        value="{{user.name}}"
+        id=""
+        class="edit-profile__name"
+      />
+    </div>
+    <div class="form-control">
+      <label for="">Email Address</label>
+      <input
+        type="email"
+        name="email"
+        id=""
+        value="{{user.email}}"
+        class="edit-profile__email"
+      />
+    </div>
+    {% if edit_error %}
+    <p class="user-edit-error">
+      <img src="{% static 'images/icons/error-ic.svg' %}" alt="" /> Email
+      Already Exist
+    </p>
+    {% endif %}
+    <div>
+      <input type="submit" class="btn-primary" value="Save Changes" />
+    </div>
+  </form>
+</main>
+{% endblock %}

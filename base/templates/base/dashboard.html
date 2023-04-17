@@ -1,0 +1,165 @@
+{% extends 'main.html' %} {% load static %} {% block content %}
+<main class="dashboard-container">
+  <div class="sidebar">
+    <div class="primary-sidebar">
+      <h1 class="heading">BitPass</h1>
+      <div class="display-user">
+        <h4>{{request.user.name}}</h4>
+        <p>{{greet}}!</p>
+      </div>
+
+      <ul class="options">
+        <li class="pass-op op-active">
+          <a href="{% url 'dashboard' %}">
+            <img src="{% static 'images/icons/pass-ic.svg' %}" />
+            <span>Passwords</span>
+          </a>
+        </li>
+        <li class="edit-profile-op">
+          <a href="{% url 'edit-profile'%}"
+            ><img src="{% static 'images/icons/edit-ic.svg' %}" />
+            <span>Edit Profile</span></a
+          >
+        </li>
+        <li class="logout-op">
+          <a href="{% url 'logout' %}">
+            <img src="{% static 'images/icons/logout-ic.svg' %}" />
+            <span>Logout</span>
+          </a>
+        </li>
+
+        <li class="delete-op">
+          <a href="{% url 'delete-user' %}">
+            <img src="{% static 'images/icons/delete-user-ic.svg' %}" />
+            <span>Delete Account</span>
+          </a>
+        </li>
+      </ul>
+    </div>
+    <div class="secondary-sidebar">
+      <h2>Categories</h2>
+      <ul class="category">
+        <li class="category-item">
+          <a href="{% url 'dashboard' %}">
+            <img src="{% static 'images/icons/all-ic.svg' %}" />
+            <span class="category-name">All</span>
+          </a>
+        </li>
+
+        {% for category in categories %}
+        <li class="category-item">
+          <a href="{% url 'dashboard' %}?r={{category.category_name}}">
+            <img src="{% static 'images/icons/folder-ic.svg' %}" />
+            <span class="category-name">{{category.category_name}}</span>
+          </a>
+        </li>
+        {% endfor %}
+      </ul>
+
+      <div class="add-category"></div>
+    </div>
+  </div>
+  <div class="main-content">
+    <header>
+      <form action="" method="GET" class="search-form">
+        <div class="search-form-control">
+          <input
+            type="text"
+            name="q"
+            placeholder="Search..."
+            class="search-input"
+          />
+          <img src="{% static 'images/icons/search-ic.svg' %}" />
+        </div>
+      </form>
+      <a href="{% url 'add-password' %}" class="btn-primary">
+        <img src="{% static 'images/icons/add-ic.svg' %}" />
+        <span>Add Password</span>
+      </a>
+    </header>
+    <div class="passwords-container">
+      <div class="password-container-scroll">
+        <table class="table-content">
+          <thead>
+            <th>Title</th>
+            <th>Description</th>
+            <th>Email</th>
+            <th colspan="4">Password</th>
+          </thead>
+          <tbody>
+            {% for password in saved_passwords %}
+            <tr>
+              <td>{{password.title}}</td>
+
+              {% if password.description == "" %}
+              <td>N/A</td>
+              {% else %}
+              <td>{{password.description}}...</td>
+              {% endif %}
+
+              <td>{{password.email}}</td>
+              <td class="password-cell">
+                <span class="password-cell-pass hidden"
+                  >{{password.saved_password}}</span
+                >
+                <span class="password-cell-hide">
+                  &bull;&bull;&bull;&bull;&bull;&bull;&bull;&bull;&bull;&bull;&bull;&bull;&bull;&bull;&bull;&bull;&bull;&bull;&bull;&bull;
+                </span>
+              </td>
+              <td>
+                <img
+                  src="{% static 'images/icons/hide-ic.svg' %}"
+                  class="password-hide"
+                />
+                <img
+                  src="{% static 'images/icons/show-ic.svg' %}"
+                  class="password-view hidden"
+                />
+              </td>
+
+              <td>
+                <a>
+                  <img
+                    src="{% static 'images/icons/copy-ic.svg' %}"
+                    class="password-copy"
+                  />
+                </a>
+              </td>
+
+              <td>
+                <div class="more-option">
+                  <img
+                    src="{% static 'images/icons/option-ic.svg' %}"
+                    class="more-option-img"
+                  />
+                  <div class="option-content">
+                    <a href="{% url 'edit-password' password.id %}">Edit</a>
+                    <a href="{% url 'delete-password' password.id %}">Delete</a>
+                  </div>
+                </div>
+              </td>
+            </tr>
+            {% endfor %}
+          </tbody>
+        </table>
+      </div>
+    </div>
+
+    <dialog class="modal">
+      <div class="add-category-modal">
+        <h1>Add Category</h1>
+        <form action="" method="POST" class="add-category-form">
+          {% csrf_token %}
+          <input name="category-name" type="text" required />
+          <div class="form-control">
+            <a class="cancel-category btn-secondary">Cancel</a>
+            <input type="submit" class="btn-primary" value="Submit" />
+          </div>
+        </form>
+      </div>
+    </dialog>
+  </div>
+
+  <div id="snackbar">Password Copied..</div>
+</main>
+{% endblock %}

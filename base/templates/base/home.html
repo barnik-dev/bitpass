@@ -1,0 +1,45 @@
+{% extends 'main.html' %} {% load static %} {% block content %}
+<!-- NAVBAR -->
+<header>
+  <nav class="navbar">
+    <div class="container navbar__container">
+      <div class="logo">BitPass</div>
+      <a href="{% url 'signup' %}" class="btn-secondary navbar__signup-btn"
+        >Sign Up</a
+      >
+    </div>
+  </nav>
+</header>
+
+<!-- HERO SECTION -->
+<main>
+  <section class="hero-section">
+    <div class="container hero-section__container">
+      <div class="hero-section__left">
+        <h1 class="hero-section__heading">
+          Your Password Has Never Been More Secure
+        </h1>
+        <div class="hero-section__cta">
+          <a
+            href="{% url 'login' %}"
+            class="btn-primary hero-section__login-btn"
+            >Login</a
+          >
+          <a
+            href="{% url 'signup' %}"
+            class="btn-secondary hero-section__signup-btn"
+            >Sign Up</a
+          >
+        </div>
+      </div>
+      <div class="hero-section__right">
+        <img
+          src="{% static 'images/hero-img.svg' %}"
+          alt=""
+          class="hero-section__img"
+        />
+      </div>
+    </div>
+  </section>
+</main>
+{% endblock %}

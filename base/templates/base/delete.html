@@ -1,0 +1,27 @@
+{% extends 'main.html' %} {% block content %}
+
+<main class="delete-main">
+  <div class="delete-container">
+    <form action="" method="POST">
+      {% csrf_token %} {% if delete == 'User' %}
+      <h3 class="delete-heading">
+        Are you sure you want to delete your account? All saved passwords will
+        be deleted.
+      </h3>
+      {% else %}
+      <h3 class="delete-heading">
+        Are you sure you want to delete "{{password.email}}" belonging to
+        "{{password.title}}"?
+      </h3>
+      {% endif %}
+      <div class="form-control">
+        <a href="{% url 'dashboard' %}" class="cancel-delete btn-secondary"
+          >Cancel</a
+        >
+        <input class="btn-primary" type="submit" value="Confirm" />
+      </div>
+    </form>
+  </div>
+</main>
+
+{% endblock %}

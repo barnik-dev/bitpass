@@ -1,0 +1,895 @@
+@import url("https://fonts.googleapis.com/css2?family=Poppins:wght@400;500;700&display=swap");
+
+:root {
+  --primary-color: #153b3c;
+  --secondary-color: #87a07d;
+  --error-color: #de3163;
+}
+
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+  font-family: "Poppins", sans-serif;
+}
+
+a {
+  text-decoration: none;
+}
+
+a:hover {
+  cursor: pointer;
+}
+
+ul {
+  padding: 0;
+  margin: 0;
+  list-style-type: none;
+}
+
+/* HELPER CLASSES */
+.logo-heading {
+  color: var(--primary-color);
+  text-align: center;
+  margin-top: 1em;
+  font-size: 2rem;
+}
+
+.btn-primary {
+  background-color: var(--primary-color);
+  color: white;
+  font-weight: 700;
+  padding: 0.8em 2em;
+  border-radius: 5px;
+  transition: transform 0.1s ease;
+  border: none;
+}
+
+.btn-primary:hover {
+  transform: scale(0.9);
+  cursor: pointer;
+}
+
+.btn-secondary {
+  background-color: var(--secondary-color);
+  color: white;
+  font-weight: 700;
+  padding: 0.8em 1.5em;
+  border-radius: 5px;
+  transition: transform 0.1s ease;
+  border: none;
+}
+
+.btn-secondary:hover {
+  transform: scale(0.9);
+  cursor: pointer;
+}
+
+.flex-container {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  flex-direction: column;
+  height: 70vh;
+  width: 100%;
+}
+
+/************************************* INDEX HTML *************************************/
+/* NAVBAR */
+.navbar {
+  background-color: var(--primary-color);
+  padding: 1em 0;
+}
+
+.navbar__container {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+}
+
+.logo {
+  color: white;
+  font-size: 1.6rem;
+  font-weight: 500;
+}
+
+/* HERO SECTION */
+.hero-section {
+  margin-top: 8em;
+}
+
+.hero-section__container {
+  display: grid;
+  grid-template-columns: repeat(2, 1fr);
+  justify-content: space-between;
+  align-items: center;
+  gap: 10em;
+}
+
+.hero-section__left {
+  margin-left: 6em;
+}
+
+.hero-section__heading {
+  font-size: 3.5rem;
+  color: #1b2222;
+}
+
+.hero-section__cta {
+  display: flex;
+  align-items: center;
+  gap: 2em;
+  margin-top: 2em;
+}
+
+.hero-section__cta > a {
+  font-size: 1.2em;
+}
+
+.hero-section__img {
+  width: 90%;
+}
+
+.container {
+  max-width: 100rem;
+  margin: 0 auto;
+  padding: 0 2em;
+}
+
+/******************************** LOGIN HTML & SIGNUP HTML **************************/
+.form-container {
+  padding: 1.8em 2em;
+  box-shadow: 0 0 22px 0 rgba(0, 0, 0, 10%);
+  background-color: #ffffff;
+  min-width: 25rem;
+}
+
+.form-container .heading {
+  font-size: 2.4rem;
+  color: var(--primary-color);
+  margin-bottom: 0.7em;
+}
+
+.form-container .footer {
+  color: #202020;
+  margin-top: 5em;
+}
+
+.form-container .footer a {
+  color: var(--primary-color);
+  font-weight: 500;
+}
+
+/* FORM */
+.auth-form {
+  display: flex;
+  flex-direction: column;
+  justify-content: start;
+  align-items: start;
+  gap: 1.3em;
+}
+
+.auth-form-control {
+  width: 100%;
+}
+
+.auth-form-control .email-in,
+.auth-form-control .pass-in,
+.auth-form-control .name-in {
+  width: 100%;
+  font-size: 1rem;
+  color: #202020;
+  padding: 0.6em 0.9em;
+  border: 1px solid var(--secondary-color);
+  border-radius: 5px;
+}
+.auth-form-control input:focus {
+  outline: none;
+}
+
+.auth-form-control .btn {
+  border: none;
+  padding: 0.6em 1.5em;
+  margin-top: 1.2em;
+}
+
+/* PASSWORD TOGGLE */
+.show-password {
+  display: flex;
+  align-items: center;
+  justify-content: start;
+  gap: 0.3em;
+  margin-top: 0.8em;
+}
+
+.show-password input {
+  width: 16px;
+  height: 16px;
+}
+.show-password input:hover {
+  cursor: pointer;
+}
+
+.show-password p {
+  font-size: 0.8rem;
+  color: #202020;
+}
+
+/* LOGIN ERROR */
+.login-error,
+.user-edit-error {
+  display: flex;
+  align-items: center;
+  gap: 0.3em;
+  color: var(--error-color);
+}
+
+/*********************************** DASHBOARD HTML **************************************/
+.dashboard-container {
+  display: grid;
+  grid-template-columns: repeat(10, 1fr);
+  justify-content: start;
+  align-items: start;
+  gap: 2em;
+}
+
+/* SIDEBARS */
+.sidebar {
+  display: grid;
+  grid-template-columns: 50% 50%;
+  grid-column-start: 1;
+  grid-column-end: 4;
+}
+
+/* PRIMARY SIDEBAR */
+.primary-sidebar {
+  background-color: var(--primary-color);
+  height: 100vh;
+}
+
+.primary-sidebar .heading {
+  color: #ffffff;
+  text-align: center;
+  font-size: 1.8rem;
+  margin-top: 0.8em;
+}
+
+.display-user {
+  margin-top: 1.5em;
+  text-align: center;
+}
+
+.user-img-container {
+  height: 100px;
+  width: 100px;
+  overflow: hidden;
+  border-radius: 50%;
+  margin: 0 auto;
+}
+
+.user-img-container .user-image {
+  width: 100%;
+}
+
+.display-user h4 {
+  color: #ffffff;
+  font-size: 1rem;
+  margin-top: 0.3em;
+}
+
+.display-user p {
+  color: #ffffff;
+  font-size: 1rem;
+}
+
+/* OPTIONS */
+.options {
+  margin-top: 2.5em;
+  position: relative;
+}
+
+.options li a {
+  display: flex;
+  justify-content: start;
+  align-items: center;
+  gap: 0.6em;
+  padding: 0.8em 1.6em;
+  color: #e2e2e2;
+}
+
+/* SECONDARY SIDEBAR */
+.secondary-sidebar {
+  background-color: var(--secondary-color);
+  height: 100vh;
+  position: relative;
+}
+
+.secondary-sidebar h2 {
+  font-size: 1.2rem;
+  text-align: center;
+  color: #ffffff;
+  margin-top: 1.5em;
+  margin-bottom: 1.8em;
+}
+
+/* PASSWORD CATEGORY */
+.category {
+  position: relative;
+  height: 400px;
+  overflow: hidden;
+  overflow-y: scroll;
+}
+
+.category li a {
+  display: flex;
+  justify-content: start;
+  align-items: center;
+  gap: 0.6em;
+  font-size: 0.9rem;
+  color: #ffffff;
+  padding: 0 1em;
+  margin: 1.2em 0;
+}
+
+.category .category-item a {
+  padding-top: 0 !important;
+}
+
+.add-category {
+  position: absolute;
+  top: 35em;
+  left: 50%;
+  transform: translateX(-50%);
+  width: 3.125em;
+  height: 3.125em;
+  background: url("../images/add-category.svg");
+}
+
+.add-category:hover {
+  cursor: pointer;
+}
+
+/* PASSWORD LIST */
+.main-content {
+  grid-column-start: 4;
+  grid-column-end: 11;
+  margin-right: 2em;
+}
+
+/* TOP SECTION */
+.main-content header {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  margin-top: 1.6em;
+}
+
+.main-content header .btn-primary {
+  font-size: 0.975rem;
+  padding: 0.6em 1.5em;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  gap: 0.4em;
+}
+
+/* SEARCH */
+.search-form-control {
+  position: relative;
+  width: 13.75rem;
+  height: 2.375rem;
+  background-color: #f6f6f6;
+  border-radius: 5px;
+}
+
+.search-form-control .search-input {
+  width: 89%;
+  height: 100%;
+  padding: 0 1.1em;
+  border: none;
+  background-color: #f6f6f6;
+  border-radius: 5px;
+  color: #333333;
+}
+
+.search-form-control .search-input:focus {
+  outline: none;
+}
+
+.search-form-control img {
+  position: absolute;
+  top: 50%;
+  transform: translateY(-50%);
+  right: 10px;
+  width: 8%;
+}
+
+/* PASSWORDS LIST */
+.passwords-container {
+  position: relative;
+  height: 78vh;
+  margin-top: 2em;
+}
+
+.password-container-scroll {
+  position: absolute;
+  top: 0;
+  left: 0;
+  height: 100%;
+  width: 100%;
+  overflow: hidden;
+  overflow-y: scroll;
+}
+
+/* PASSWORD TABLE */
+.table-content {
+  border-collapse: collapse;
+  text-align: left;
+  width: 100%;
+}
+
+.table-content thead {
+  background-color: var(--primary-color);
+  color: #ffffff;
+}
+
+.table-content th {
+  font-weight: 500;
+  font-size: 1.1rem;
+}
+
+.table-content td {
+  font-size: 0.9rem;
+  font-weight: 400;
+  color: #7a7a7a;
+}
+
+.table-content td:nth-of-type(odd) {
+  color: #202020;
+}
+.table-content td:nth-child(5):hover {
+  cursor: pointer;
+}
+
+.table-content td,
+.table-content th {
+  border-bottom: 1px solid #a0a0a0;
+  height: 2.6em;
+  padding: 0 0.8em;
+}
+
+/* PASSWORD MORE OPTIONS */
+.more-option-img {
+  margin-top: 0.1em;
+}
+.more-option-img:hover {
+  cursor: pointer;
+}
+
+.more-option {
+  position: relative;
+}
+
+.option-content {
+  display: none;
+  position: absolute;
+  left: -2rem;
+  top: 1.5rem;
+  background-color: var(--secondary-color);
+  z-index: 999;
+  padding: 0.6em 0;
+}
+
+.option-content a {
+  color: white;
+  display: block;
+  padding: 0.1em 0.8em;
+}
+
+.option-content a:hover {
+  cursor: pointer;
+}
+
+.option-content a:hover {
+  font-weight: 500;
+}
+
+.more-option:hover .option-content {
+  display: block;
+}
+
+/* ADD CATEGORY MODAL */
+.modal {
+  padding: 1.5em 2.2em;
+  width: 30rem;
+  box-shadow: -3px 3px 10px 0 rgba(0, 0, 0, 15%);
+  border-radius: 10px;
+  margin: auto auto;
+  border: none;
+}
+
+.modal::backdrop {
+  background-color: rgba(0, 0, 0, 0.6);
+}
+
+.add-category-modal h1 {
+  font-size: 1.5rem;
+  font-weight: 400;
+  color: #202020;
+  margin-bottom: 0.7em;
+}
+
+.add-category-form input[type="text"] {
+  background-color: rgba(135, 160, 125, 50%);
+  color: #202020;
+  font-size: 1rem;
+  border: none;
+  border-radius: 5px;
+  width: 100%;
+  height: 2.5rem;
+  padding: 0 1em;
+}
+
+.add-category-form input[type="text"]:focus {
+  outline: none;
+}
+
+.add-category-form .form-control {
+  display: flex;
+  justify-content: start;
+  align-items: center;
+  gap: 0.8em;
+  margin-top: 2.2em;
+}
+
+.add-category-form .form-control .cancel-category {
+  font-size: 0.8rem;
+  border: none;
+}
+
+.add-category-form input[type="submit"] {
+  border: none;
+  font-size: 0.8rem;
+}
+
+/********************************** ADD PASSWORD FORM HTML *************************************/
+.add-password-container {
+  display: grid;
+  grid-template-columns: 1fr 3fr;
+  justify-content: start;
+  align-items: start;
+  gap: 3em;
+}
+
+/* SIDEBAR */
+.add-password-sidebar {
+  background-color: var(--primary-color);
+  color: #ffffff;
+  height: 100vh;
+  text-align: center;
+  padding: 0 0.8em;
+}
+
+.add-password-sidebar .heading {
+  margin-top: 0.6em;
+  font-size: 2.2rem;
+}
+
+.add-password-display-user {
+  margin-top: 2.8em;
+}
+
+.add-password-display-user .user-img-container {
+  height: 150px;
+  width: 150px;
+}
+
+.add-password-display-user h4 {
+  font-size: 1.2rem;
+  margin-top: 0.6em;
+}
+
+.add-password-display-user p {
+  font-size: 1.4rem;
+}
+
+.add-password-sidebar h3 {
+  margin-top: 2em;
+  margin-left: auto;
+  margin-right: auto;
+  font-size: 1.975rem;
+  text-transform: uppercase;
+  max-width: 21rem;
+}
+
+/* ADD PASSWORD FORM */
+.add-password-form {
+  margin-right: 6em;
+}
+
+.add-password-form h1 {
+  color: var(--primary-color);
+  font-size: 1.8rem;
+  margin-top: 0.8em;
+}
+
+.add-password-form .form-control {
+  display: flex;
+  justify-content: start;
+  align-items: center;
+  gap: 6em;
+  margin-top: 1.6em;
+}
+
+.add-password-form .form-control > div {
+  display: flex;
+  flex-direction: column;
+  justify-content: start;
+  align-items: start;
+  gap: 0.6em;
+}
+
+.add-password-form label {
+  color: #202020;
+  font-size: 1.1rem;
+  font-weight: 500;
+}
+
+.add-password-form .form-control input,
+.add-password-form select {
+  background-color: rgba(135, 160, 125, 50%);
+  color: #202020;
+  font-size: 1rem;
+  border: none;
+  border-radius: 5px;
+  width: 18.75rem;
+  height: 3rem;
+  padding: 0 1.2em;
+}
+
+.add-password-form .form-control textarea {
+  background-color: rgba(135, 160, 125, 50%);
+  color: #202020;
+  font-size: 1rem;
+  padding: 1.2em 1.5em;
+  width: 25rem;
+  height: 12rem;
+  resize: none;
+  border: none;
+  border-radius: 5px;
+}
+
+.add-password-form .form-control textarea:focus {
+  outline: none;
+}
+
+.add-password-form input:focus,
+.add-password-form select:focus {
+  outline: none;
+}
+
+.add-password-form .email-form input {
+  width: 24rem;
+}
+
+.add-password-form .password-form {
+  position: relative;
+}
+
+.add-password-form .password-form img {
+  position: absolute;
+  top: 50px;
+  right: -30px;
+}
+
+.add-password-form .password-form img:hover {
+  cursor: pointer;
+}
+
+.add-password-form div:nth-child(6) {
+  margin-top: 3em;
+  display: flex;
+  justify-content: start;
+  align-items: center;
+  gap: 2em;
+}
+
+.add-password-form .cancel {
+  border: none;
+}
+
+.add-password-form input[type="submit"] {
+  border: none;
+  padding: 1.1em 2em;
+}
+
+/********************************** EDIT PROFILE HTML ************************************/
+.edit-profile-container {
+  display: grid;
+  grid-template-columns: 1fr 4fr;
+  justify-content: start;
+  align-items: start;
+  gap: 2.3em;
+}
+
+/* SIDEBAR */
+.edit-profile-sidebar {
+  background-color: var(--primary-color);
+  height: 100vh;
+  color: #ffffff;
+  text-align: center;
+}
+
+.edit-profile-sidebar .heading {
+  margin-top: 1.2em;
+  margin-bottom: 2em;
+}
+
+.edit-profile__heading {
+  color: var(--primary-color);
+  font-size: 1.8rem;
+  margin-top: 0.8em;
+  margin-bottom: 3em;
+}
+
+.edit-profile-form .form-control {
+  display: flex;
+  justify-content: start;
+  flex-direction: column;
+  gap: 0.6em;
+  margin-top: 1.6em;
+}
+
+.edit-profile-form label {
+  color: #202020;
+  font-size: 1.1rem;
+  font-weight: 500;
+}
+
+.edit-profile__name,
+.edit-profile__email {
+  background-color: rgba(135, 160, 125, 50%);
+  color: #202020;
+  font-size: 1rem;
+  border: none;
+  border-radius: 5px;
+  width: 18.75rem;
+  height: 3rem;
+  padding: 0 1.2em;
+}
+
+.edit-profile__email {
+  width: 25rem;
+}
+
+.edit-profile-form input:focus {
+  outline: none;
+}
+
+.edit-profile-form .btn-primary {
+  margin-top: 6em;
+  padding: 1.1em 2em;
+}
+
+/******************************************* DELETE *********************************************/
+.delete-main {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  height: 100vh;
+  width: 100vw;
+}
+
+.delete-container {
+  padding: 1.5em 2.2em;
+  width: 38rem;
+  box-shadow: -3px 3px 10px 0 rgba(0, 0, 0, 15%);
+  border-radius: 10px;
+  border: none;
+}
+
+.delete-heading {
+  font-size: 1.2rem;
+  font-weight: 400;
+  color: #202020;
+  margin-bottom: 0.7em;
+}
+
+.delete-container .form-control {
+  display: flex;
+  justify-content: start;
+  align-items: center;
+  gap: 0.8em;
+  margin-top: 2.2em;
+}
+
+.delete-container .cancel-delete {
+  font-size: 0.8rem;
+  border: none;
+}
+
+.delete-container input[type="submit"] {
+  border: none;
+  font-size: 0.8rem;
+}
+
+/* NEUTRAL CLASSES */
+.op-active a {
+  background-color: var(--secondary-color);
+  color: #ffffff !important;
+  font-weight: 700;
+}
+
+.cat-active {
+  font-weight: 700;
+}
+
+.hidden {
+  display: none;
+}
+
+/*************************************** TOAST  ***************************************/
+#snackbar {
+  visibility: hidden;
+  min-width: 250px;
+  margin-left: -125px;
+  background-color: #333;
+  color: #fff;
+  text-align: center;
+  border-radius: 2px;
+  padding: 16px;
+  position: fixed;
+  z-index: 1;
+  left: 50%;
+  bottom: 30px;
+}
+
+#snackbar.show {
+  visibility: visible;
+  -webkit-animation: fadein 0.5s, fadeout 0.5s 2.5s;
+  animation: fadein 0.5s, fadeout 0.5s 2.5s;
+}
+
+@-webkit-keyframes fadein {
+  from {
+    bottom: 0;
+    opacity: 0;
+  }
+  to {
+    bottom: 30px;
+    opacity: 1;
+  }
+}
+
+@keyframes fadein {
+  from {
+    bottom: 0;
+    opacity: 0;
+  }
+  to {
+    bottom: 30px;
+    opacity: 1;
+  }
+}
+
+@-webkit-keyframes fadeout {
+  from {
+    bottom: 30px;
+    opacity: 1;
+  }
+  to {
+    bottom: 0;
+    opacity: 0;
+  }
+}
+
+@keyframes fadeout {
+  from {
+    bottom: 30px;
+    opacity: 1;
+  }
+  to {
+    bottom: 0;
+    opacity: 0;
+  }
+}

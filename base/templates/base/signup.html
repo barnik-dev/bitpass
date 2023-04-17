@@ -1,0 +1,60 @@
+{% extends 'main.html' %} {% load static %} {% block content %}
+<h1 class="logo-heading">BitPass</h1>
+<div class="flex-container">
+  <div class="form-container">
+    <h1 class="heading">Sign Up</h1>
+
+    <!-- SIGNUP FORM -->
+    <form action="" method="POST" class="auth-form">
+      {% csrf_token %}
+      <div class="auth-form-control">
+        <input
+          type="text"
+          class="name-in"
+          name="name"
+          placeholder="Name"
+          required
+        />
+      </div>
+      <div class="auth-form-control">
+        <input
+          name="email"
+          type="email"
+          class="email-in"
+          placeholder="Email Address"
+          required
+        />
+      </div>
+
+      <div class="auth-form-control">
+        <input
+          name="password"
+          type="password"
+          class="pass-in"
+          placeholder="Password"
+          required
+        />
+        <div class="show-password">
+          <input type="checkbox" onclick="togglePassword(password)" />
+          <p>Show Password</p>
+        </div>
+      </div>
+
+      {% if signup_error %}
+      <p class="login-error">
+        <img src="{% static 'images/icons/error-ic.svg' %}" alt="" /> User
+        Already Exist
+      </p>
+      {% endif %}
+
+      <div class="auth-form-control">
+        <input type="submit" class="btn-primary" value="Sign Up" />
+      </div>
+    </form>
+
+    <p class="footer">
+      Already have an account? <a href="{% url 'login' %}">Login</a>
+    </p>
+  </div>
+</div>
+{% endblock %}
